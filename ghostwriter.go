@@ -20,7 +20,7 @@ func Generate(template *Template, details []Detail) (*string, error) {
 	return &result.String, nil
 }
 
-func Parse(template *Template, patterns []ExtractionPattern, parseString string) (*[]Detail, error) {
+func Parse(template *Template, patterns []ExtractionPattern, parseString string) ([]Detail, error) {
 	var working = template
 	var source = parseString
 	var details = make([]Detail, 0)
@@ -44,5 +44,5 @@ func Parse(template *Template, patterns []ExtractionPattern, parseString string)
 		return nil, errors.New("ghostwriter.Parse() final working string and source do not match")
 	}
 	
-	return &details, nil
+	return details, nil
 }
