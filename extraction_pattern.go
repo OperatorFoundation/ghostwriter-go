@@ -50,9 +50,9 @@ func (pattern ExtractionPattern)extractor(x string) (*string, error) {
 		return nil, regexError
 	}
 
-	match := regex.FindString(x)
-	if match == "" {
+	matches := regex.FindStringSubmatch(x)
+	if len(matches) == 0 {
 		return nil, errors.New("extractor(): could not find match")
 	}
-	return &match, nil
+	return &matches[0], nil
 }
