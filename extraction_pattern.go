@@ -45,7 +45,7 @@ func (pattern ExtractionPattern) convert(convertString string) (Detail, error) {
 }
 
 func (pattern ExtractionPattern)extractor(x string) (*string, error) {
-	regex , regexError := regexp.Compile(x)
+	regex, regexError := regexp.Compile(pattern.Expression)
 	if regexError != nil {
 		return nil, regexError
 	}
