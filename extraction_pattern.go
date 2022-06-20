@@ -54,5 +54,5 @@ func (pattern ExtractionPattern)extractor(x string) (*string, error) {
 	if len(matches) == 0 {
 		return nil, errors.New("extractor(): could not find match")
 	}
-	return &matches[0], nil
+	return &matches[1], nil
 }
