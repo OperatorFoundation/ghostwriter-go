@@ -21,6 +21,7 @@ func TestGenerateString(t *testing.T) {
 		t.Fail()
 	}
 }
+
 // import XCTest
 // @testable import Ghostwriter
 

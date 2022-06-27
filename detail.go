@@ -6,6 +6,7 @@ import (
 )
 
 type Types int
+
 const (
 	String Types = iota
 	Int

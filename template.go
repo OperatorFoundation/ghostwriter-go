@@ -30,9 +30,9 @@ func (temp *Template) extract(index int, pattern ExtractionPattern, source strin
 		return nil, nil, nil, errors.New("template.extract(): failed to find index")
 	}
 
-	templatePreludeIndex := extractIndex + len(oldText) //exclusive
+	templatePreludeIndex := extractIndex + len(oldText) // exclusive
 	sourcePreludeIndex := extractIndex
-	prelude := temp.String[:extractIndex] //exclusive
+	prelude := temp.String[:extractIndex] // exclusive
 	if !strings.HasPrefix(source, prelude) {
 		return nil, nil, nil, errors.New("template.extract(): source and prelude from template do not match")
 	}
@@ -57,6 +57,6 @@ func (temp *Template) extract(index int, pattern ExtractionPattern, source strin
 
 	endMatchIndex := matchIndex + len(*result)
 	resultEnd := sourceRest[endMatchIndex:]
-	
+
 	return &Template{templateRest}, &resultEnd, &convertedDetail, nil
 }

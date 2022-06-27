@@ -11,7 +11,7 @@ func Generate(template *Template, details []Detail) (*string, error) {
 	}
 
 	for index, detail := range details {
-		result, applyError = result.apply(index + 1, detail)
+		result, applyError = result.apply(index+1, detail)
 		if applyError != nil {
 			return nil, applyError
 		}
@@ -30,10 +30,10 @@ func Parse(template *Template, patterns []ExtractionPattern, parseString string)
 	}
 
 	for index, pattern := range patterns {
-		newTemplate, newSource, detail, extractError := working.extract(index + 1, pattern, source)
+		newTemplate, newSource, detail, extractError := working.extract(index+1, pattern, source)
 		if extractError != nil {
 			return nil, extractError
-		} 
+		}
 
 		working = newTemplate
 		source = *newSource
@@ -43,6 +43,6 @@ func Parse(template *Template, patterns []ExtractionPattern, parseString string)
 	if working.String != source {
 		return nil, errors.New("ghostwriter.Parse() final working string and source do not match")
 	}
-	
+
 	return details, nil
 }
